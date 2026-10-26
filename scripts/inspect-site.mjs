@@ -103,7 +103,18 @@ async function inspectViewport(browser, options, viewport, label, reducedMotion 
     if (message.type() === "error") consoleErrors.push(message.text());
   });
 
-  await page.goto(options.url, { waitUntil: "networkidle", timeout: options.timeout });
+  let navigationMode = "networkidle";
+  try {
+    await page.goto(options.url, { waitUntil: "networkidle", timeout: options.timeout });
+  } catch (error) {
+    // Media-heavy sites can remain continuously active even after their DOM is
+    // ready. Preserve the loaded public page instead of treating that traffic
+    // as a failed navigation, while still rejecting genuine load failures.
+    if (page.url() === "about:blank" || !/timeout/i.test(error.message)) throw error;
+    navigationMode = "domcontentloaded-after-network-timeout";
+    await page.waitForLoadState("domcontentloaded", { timeout: Math.min(options.timeout, 10_000) });
+    await page.waitForTimeout(1_500);
+  }
 
   const runtime = await page.evaluate(() => {
     const selectorFor = (element) => {
@@ -237,7 +248,7 @@ async function inspectViewport(browser, options, viewport, label, reducedMotion 
   const sourceMaps = findSourceMaps(scriptBodies);
   await context.close();
 
-  return { label, viewport, reducedMotion, runtime, stack, responses, performanceEntries, consoleErrors, bundleEvidence, sourceMaps };
+  return { label, viewport, reducedMotion, navigationMode, runtime, stack, responses, performanceEntries, consoleErrors, bundleEvidence, sourceMaps };
 }
 
 async function main() {
