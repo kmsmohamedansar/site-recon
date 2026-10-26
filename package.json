@@ -1,0 +1,16 @@
+{
+  "name": "site-recon-skill",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence-backed website stack and animation inspection skill for Codex and Claude Code.",
+  "license": "MIT",
+  "scripts": {
+    "inspect": "node scripts/inspect-site.mjs",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}
+

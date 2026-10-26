@@ -1,0 +1,59 @@
+.petal-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout paint;
+}
+
+.petal-field__fall {
+  position: absolute;
+  top: -3rem;
+  left: var(--petal-x);
+  width: 1.35rem;
+  opacity: 0;
+  transform: translate3d(0, -8vh, 0) scale(var(--petal-scale));
+  animation: petal-field-fall var(--petal-duration) linear var(--petal-delay) infinite;
+  will-change: transform, opacity;
+}
+
+.petal-field__sway {
+  display: block;
+  animation: petal-field-sway var(--petal-sway) ease-in-out var(--petal-delay) infinite alternate;
+}
+
+.petal-field svg {
+  display: block;
+  fill: color-mix(in srgb, currentColor 72%, transparent);
+  overflow: visible;
+}
+
+.petal-field__vein {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.7;
+  opacity: 0.45;
+}
+
+@keyframes petal-field-fall {
+  0% { opacity: 0; transform: translate3d(0, -8vh, 0) scale(var(--petal-scale)); }
+  8% { opacity: 0.72; }
+  90% { opacity: 0.72; }
+  100% { opacity: 0; transform: translate3d(var(--petal-drift), 112vh, 0) scale(var(--petal-scale)); }
+}
+
+@keyframes petal-field-sway {
+  from { transform: translateX(-0.7rem) rotate(-28deg); }
+  to { transform: translateX(0.7rem) rotate(82deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal-field__fall,
+  .petal-field__sway {
+    animation: none;
+  }
+
+  .petal-field__fall {
+    display: none;
+  }
+}

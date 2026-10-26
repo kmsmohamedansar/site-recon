@@ -1,0 +1,5 @@
+interface:
+  display_name: "Site Recon"
+  short_description: "Inspect site stacks, motion, and public assets"
+  brand_color: "#74200D"
+  default_prompt: "Use $site-recon to inspect this public website and produce an evidence-backed clean-room rebuild brief."

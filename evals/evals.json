@@ -1,0 +1,30 @@
+{
+  "skill_name": "site-recon",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Analyze https://ansarbuilds.dev and tell me exactly what frontend technologies and animation techniques it uses. Separate facts from inference, cover mobile and reduced motion, and give me a clean-room recipe for recreating the interaction style without copying the content.",
+      "expected_output": "An evidence-backed stack and animation report with confidence labels, responsive/accessibility coverage, and original implementation recipes.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I own the portfolio in ./portfolio-shallow/portfolio. Compare the deployed homepage with the source and produce a component-by-component motion inventory. Flag dependencies that are installed but not actually used on the homepage.",
+      "expected_output": "An owner-mode report comparing runtime evidence with local source imports and distinguishing shipped behavior from unused dependencies.",
+      "files": ["../portfolio-shallow/portfolio"]
+    },
+    {
+      "id": 3,
+      "prompt": "Rebuild the feel of this agency homepage in React: https://example.com. Keep the scroll reveals and magnetic buttons but use a new layout, new colors, placeholder copy, and no downloaded brand assets.",
+      "expected_output": "A public-mode inspection followed by an original React implementation that recreates techniques without cloning identity, content, or proprietary assets.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Extract the actual browser-visible animation evidence from https://kigo.studio, including exact keyframes, timings, selectors, asset URLs, bundle signatures, and source-map references. Then make an original React component that reproduces the ambient falling-petal technique for my own portfolio without reusing their artwork.",
+      "expected_output": "A forensic artifact bundle plus an original, accessible React/CSS implementation with reduced-motion support and clear separation between observed third-party evidence and reusable new code.",
+      "files": []
+    }
+  ]
+}
+
