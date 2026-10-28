@@ -8,6 +8,8 @@ An open-source agent skill for Codex and Claude Code that inspects the public br
 
 Site Recon does not pretend a production bundle is the original source. It records what a normal browser can verify, labels inference, and gives an agent enough evidence to build an original equivalent.
 
+[Download version 0.2.0](https://github.com/kmsmohamedansar/site-recon/releases/tag/v0.2.0) · [Sample case study](docs/kigo-case-study.md)
+
 ## Documentation
 
 - [Installation](docs/installation.md)
