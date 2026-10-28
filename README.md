@@ -16,6 +16,7 @@ Site Recon does not pretend a production bundle is the original source. It recor
 - [Kigo Studio case study](docs/kigo-case-study.md)
 - [Limitations and responsible use](docs/limitations-and-responsible-use.md)
 - [Contributing](CONTRIBUTING.md)
+- [Security and report sharing](SECURITY.md)
 
 It is designed to answer questions such as:
 
