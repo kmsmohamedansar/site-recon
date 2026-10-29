@@ -10,6 +10,20 @@ Site Recon does not pretend a production bundle is the original source. It recor
 
 [Download version 0.2.0](https://github.com/kmsmohamedansar/site-recon/releases/tag/v0.2.0) · [Sample case study](docs/kigo-case-study.md)
 
+## Example output
+
+An inspection of the author's own portfolio on October 26, 2026 produced the following excerpt from its generated clean-room brief:
+
+```text
+Stack signals: React (strongly inferred), Vite (strongly inferred),
+  Three.js (verified), Motion / Framer Motion (strongly inferred)
+CSS keyframes: 12
+Active animations at sample time: desktop 1, mobile 1, reduced motion 0
+Animated targets: div.marquee-track
+```
+
+These are observations from that particular run, not a guarantee about the current site. Animation counts are snapshots, and an inferred stack signal is not the same as verified source code. The generated brief also describes how to recreate the observed techniques with original assets and accessible controls.
+
 ## Documentation
 
 - [Installation](docs/installation.md)
